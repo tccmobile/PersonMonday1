@@ -13,6 +13,7 @@ class Person {
         string name;
         int age;
         double height;
+        bool isValidAge(int age);
     public:
         string getName() const;
         int getAge() const;
@@ -24,6 +25,7 @@ class Person {
         Person(string name);
         Person(string name, int age, double height);
         void hasBirthday();
+        void print() const;
 
 };
 
