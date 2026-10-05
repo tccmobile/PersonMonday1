@@ -2,13 +2,40 @@
 #include <iostream>
 using namespace std;
 
+
+void myFunc(Person person) {
+    cout<<"Inside myFunc()"<<endl;
+    person.hasBirthday();
+    person.print();
+    cout<<"Leaving myFunc()"<<endl;
+
+}
 int main() {
     Person p1;
     Person p2("Will Smith");
-    Person p3("Bob Taylor",85,65);
-    Person p4("Sue Cook", -45,62);
+    Person p3("Bob Taylor",85,65,"Old Man");
+    Person p4("Sue Cook", -45,62,"Wise One");
+    Person* pPtr = new Person();
+    Person* pPtr2 = &p2;
+    Person* pPtr3 = new Person("Carl");
 
-    cout<<"Default constructor"<<endl;
+
+/*
+    p3.print();
+    myFunc(p3);
+    cout<<"back in main()"<<endl;
+    p3.print();
+*/
+
+    p2=p4;
+    cout<<p1<<endl;
+    delete pPtr;
+    //delete pPtr2;
+    delete pPtr3;
+
+
+
+    /* cout<<"Default constructor"<<endl;
     p1.print();
 
     cout<<"Constructor with name only"<<endl;
@@ -33,6 +60,6 @@ int main() {
     p1.print();
 
     cout<<"Testing constructor validation"<<endl;
-    p4.print();
+    p4.print(); */
     return 0;
 }

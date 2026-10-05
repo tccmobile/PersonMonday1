@@ -15,21 +15,35 @@ void Person::print() const {
     cout<<"Name: "<<name<<endl;
     cout<<"Age: "<<age<<endl;
     cout<<"Height: "<<height<<endl;
+    cout<<"Nickname: "<<nickname<<endl;
+}
+
+Person::~Person() {
+    cout<<"Person destructor: "<<name<<endl;
+    delete[] nickname;
 }
 
 Person::Person() {
     name = "John Doe";
+    cout<<"Person constructor: "<<name<<endl;
     age = 42;
     height = 68;
+    nickname = new char[strlen("Bubba") + 1];
+    strcpy(nickname, "Bubba");
+
 }
 
 Person::Person(string name) {
+    cout<<"Person constructor: "<<name<<endl;
     this->name = name;
     age = 42;
     height = 68;
+    nickname = new char[strlen("Runt") + 1];
+    strcpy(nickname, "Runt");
 }
 
-Person::Person(string name, int age, double height) {
+Person::Person(string name, int age, double height, char* nickname) {
+    cout<<"Person constructor: "<<name<<endl;
     this->name = name;
     if (isValidAge(age)) {
         this->age = age;
@@ -37,6 +51,16 @@ Person::Person(string name, int age, double height) {
         this->age = 42;
     }
     this->height = height;
+    this->nickname = new char[strlen(nickname) + 1];
+    strcpy(this->nickname, nickname);
+}
+
+Person::Person(const Person &person) {
+    this->name = person.name;
+    this->age = person.age;
+    this->height = person.height;
+    this->nickname = new char[strlen(person.nickname) + 1];
+    strcpy(this->nickname, person.nickname);
 }
 
 bool Person::isValidAge(int age) {
@@ -73,4 +97,23 @@ void Person::setAge(int age) {
 
 void Person::setHeight(double height) {
     this->height = height;
+}
+
+Person& Person::operator=(const Person& person) {
+    if (this != &person) {
+        this->name = person.name;
+        this->age = person.age;
+        this->height = person.height;
+        this->nickname = new char[strlen(person.nickname) + 1];
+        strcpy(this->nickname, person.nickname);
+    }
+    return *this;
+}
+
+ostream & operator<<(ostream &os, const Person &person) {
+    os<<"Name: "<<person.name<<endl;
+    os<<"Age: "<<person.age<<endl;
+    os<<"Height: "<<person.height<<endl;
+    os<<"Nickname: "<<person.nickname<<endl;
+    return os;
 }
