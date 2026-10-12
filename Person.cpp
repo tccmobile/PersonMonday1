@@ -16,6 +16,7 @@ void Person::print() const {
     cout<<"Age: "<<age<<endl;
     cout<<"Height: "<<height<<endl;
     cout<<"Nickname: "<<nickname<<endl;
+
 }
 
 Person::~Person() {
@@ -81,6 +82,10 @@ int Person::getAge() const {
 
 double Person::getHeight() const {
     return height;
+}
+
+char * Person::getNickname() const {
+    return nickname;
 }
 
 void Person::setName(string name) {

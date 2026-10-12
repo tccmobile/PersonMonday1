@@ -1,5 +1,7 @@
 #include "Person.h"
 #include <iostream>
+
+#include "Student.h"
 using namespace std;
 
 
@@ -11,7 +13,18 @@ void myFunc(Person person) {
 
 }
 int main() {
-    Person p1;
+
+    Student s1;
+    Student s2(3.75);
+    Student s3("Larry",55,66,"Prof",4.0);
+
+
+
+    s3.print();
+    s3.hasBirthday();
+    s3.print();
+
+  /*  Person p1;
     Person p2("Will Smith");
     Person p3("Bob Taylor",85,65,"Old Man");
     Person p4("Sue Cook", -45,62,"Wise One");
@@ -20,12 +33,12 @@ int main() {
     Person* pPtr3 = new Person("Carl");
 
 
-/*
+
     p3.print();
     myFunc(p3);
     cout<<"back in main()"<<endl;
     p3.print();
-*/
+
 
     p2=p4;
     cout<<p1<<endl;
@@ -35,7 +48,7 @@ int main() {
 
 
 
-    /* cout<<"Default constructor"<<endl;
+    cout<<"Default constructor"<<endl;
     p1.print();
 
     cout<<"Constructor with name only"<<endl;

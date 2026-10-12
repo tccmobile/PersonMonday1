@@ -19,6 +19,7 @@ class Person {
         string getName() const;
         int getAge() const;
         double getHeight() const;
+        char * getNickname() const;
         void setName(string name);
         void setAge(int age);
         void setHeight(double height);
