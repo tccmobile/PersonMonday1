@@ -28,8 +28,8 @@ class Person {
         Person(string name, int age, double height, char* nickname);
         Person(const Person& person);
         void hasBirthday();
-        void print() const;
-        ~Person();
+        virtual  void print() const;
+        virtual ~Person();
         Person& operator=(const Person& person);
         friend ostream& operator<<(ostream& os, const Person& person);
 
